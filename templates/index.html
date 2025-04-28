@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">FraudShield <i class='bx bx-shield-quarter'></i></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#detection">Detection</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <!-- Dark Mode -->
+            <div class="bx bx-moon" id="darkmode"></div>
+        </ul>
+    </header>
+    <!-- Home  Section-->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Fraud Detection</h1>
+            <h2>Advanced protection against<br>financial fraud</h2>
+            <a href="#detection" class="btn">Try Detection</a>
+        </div>
+        <div class="home-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fraud Detection">
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="About Fraud Detection">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>We protect your transactions</h2>
+            <p>FraudShield uses advanced machine learning algorithms to detect fraudulent activities in both online payments and credit card transactions. Our system analyzes patterns and behaviors to identify potential threats in real-time.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="heading">
+            <span>Services</span>
+            <h2>What We Protect Against</h2>
+        </div>
+
+        <div class="servives-container">
+            <!-- Box 1 -->
+            <div class="s-box">
+                <i class='bx bx-credit-card-front'></i>
+                <h3>Credit Card Fraud</h3>
+                <p>Detect unauthorized credit card transactions and suspicious purchasing patterns to prevent financial losses.</p>
+            </div>
+            <!-- Box 2 -->
+            <div class="s-box">
+                <i class='bx bx-money'></i>
+                <h3>Online Payment Fraud</h3>
+                <p>Identify fraudulent online transactions including fake accounts, money laundering, and unauthorized transfers.</p>
+            </div>
+            <!-- Box 3 -->
+            <div class="s-box">
+                <i class='bx bx-shield-quarter'></i>
+                <h3>Real-time Protection</h3>
+                <p>24/7 monitoring of transactions with instant alerts for suspicious activities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detection Section -->
+    <section class="detection" id="detection">
+        <div class="heading">
+            <span>Fraud Detection</span>
+            <h2>Check Your Transaction</h2>
+        </div>
+        
+        <div class="detection-tabs">
+            <button class="tab-btn active" data-tab="online-payment-form">Online Payment</button>
+    <button class="tab-btn" data-tab="credit-card-form">Credit Card</button>
+        </div>
+        
+        <!-- Online Payment Form -->
+<div class="detection-form active" id="online-payment-form">
+    <form id="onlinePaymentForm" action="/predict_online_payment" method="POST">
+        <div class="form-group">
+            <label for="type_of_transaction">Transaction Type</label>
+            <select id="payment-type" name="type" required>
+                <option value="" disabled selected>Select transaction type</option>
+                <option value="CASH_OUT">CASH_OUT</option>
+                <option value="PAYMENT">PAYMENT</option>
+                <option value="CASH_IN">CASH_IN</option>
+                <option value="TRANSFER">TRANSFER</option>
+                <option value="DEBIT">DEBIT</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="payment-amount" name="amount" placeholder="Enter transaction amount" step="any" required>
+        </div>
+
+        <div class="form-group">
+            <label for="old_balance">Old Balance (Origin)</label>
+            <input type="number" id="old-balance" name="oldbalanceOrg" placeholder="Enter origin old balance" step="any" required>
+        </div>
+
+        <div class="form-group">
+            <label for="new_balance">New Balance (Origin)</label>
+            <input type="number" id="new-balance" name="newbalanceOrig" placeholder="Enter origin new balance" step="any" required>
+        </div>
+
+        <button type="submit" class="btn">Check for Fraud</button>
+    </form>
+</div>
+        
+<!-- Credit Card Form -->
+<div class="detection-form" id="credit-card-form">
+    <form id="creditCardForm" action="/predict_credit_card" method="POST">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="v1">V1</label>
+                <input type="number" id="v1" name="v1" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v2">V2</label>
+                <input type="number" id="v2" name="v2" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">V3</label>
+                <input type="number" id="v3" name="v3" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v4">V4</label>
+                <input type="number" id="v4" name="v4" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v5">V5</label>
+                <input type="number" id="v5" name="v5" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v6">V6</label>
+                <input type="number" id="v6" name="v6" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v7">V7</label>
+                <input type="number" id="v7" name="v7" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v8">V8</label>
+                <input type="number" id="v8" name="v8" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v9">V9</label>
+                <input type="number" id="v9" name="v9" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v10">V10</label>
+                <input type="number" id="v10" name="v10" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v11">V11</label>
+                <input type="number" id="v11" name="v11" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v12">V12</label>
+                <input type="number" id="v12" name="v12" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v13">V13</label>
+                <input type="number" id="v13" name="v13" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v14">V14</label>
+                <input type="number" id="v14" name="v14" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v15">V15</label>
+                <input type="number" id="v15" name="v15" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v16">V16</label>
+                <input type="number" id="v16" name="v16" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v17">V17</label>
+                <input type="number" id="v17" name="v17" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v18">V18</label>
+                <input type="number" id="v18" name="v18" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v19">V19</label>
+                <input type="number" id="v19" name="v19" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v20">V20</label>
+                <input type="number" id="v20" name="v20" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v21">V21</label>
+                <input type="number" id="v21" name="v21" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v22">V22</label>
+                <input type="number" id="v22" name="v22" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v23">V23</label>
+                <input type="number" id="v23" name="v23" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v24">V24</label>
+                <input type="number" id="v24" name="v24" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v25">V25</label>
+                <input type="number" id="v25" name="v25" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v26">V26</label>
+                <input type="number" id="v26" name="v26" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v27">V27</label>
+                <input type="number" id="v27" name="v27" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="v28">V28</label>
+                <input type="number" id="v28" name="v28" step="any" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="amount">Transaction Amount</label>
+                <input type="number" id="amount" name="amount" step="any" required>
+            </div>
+        </div>
+    
+        <button type="submit" class="btn">Check for Fraud</button>
+    </form>    
+</div>
+        
+        <!-- Results Section -->
+        <div class="results" id="results">
+            <!-- Results will be displayed here -->
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <h3>FraudShield</h3>
+            <span>Connect With Us</span>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook' ></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+                <a href="#"><i class='bx bxl-linkedin' ></i></a>
+            </div>
+        </div>
+        <div class="contact-box">
+            <h3>Quick Links</h3>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#detection">Detection</a></li>
+        </div>
+        <div class="contact-box">
+            <h3>Legal</h3>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#security">Security</a></li>
+        </div>
+        <div class="contact-box address">
+            <h3>Contact</h3>
+            <i class='bx bxs-map' ><span>House number 123, Abul Fazal Enclave, Okhla, New Delhi (110025)</span></i>
+            <i class='bx bxs-phone' ><span>+91 970 813 8005</span></i>
+            <i class='bx bxs-envelope' ><span><a href="mailto:mozammilalam876@gmail.com">mozammilalam876@gmail.com</a>
+            </span></i>
+        </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>&copy; 2025 FraudShield. All Rights Reserved.</p>
+    </div>
+
+    <!-- Link To JavaScript -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
