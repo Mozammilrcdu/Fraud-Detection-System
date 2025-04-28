@@ -144,7 +144,7 @@ http://localhost:5000
 ### Screenshot 2: Detection Forms
 ![Detection Form Screenshot](./Screenshots/detection-form.png)
 
-### Screenshot 3: Prediction Results
+### Screenshot 3: Detection Results
 ![Results Screenshot](./Screenshots/results.png)
 
 ---
