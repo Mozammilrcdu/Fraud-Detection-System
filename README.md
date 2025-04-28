@@ -142,7 +142,7 @@ http://localhost:5000
 ![Home Screenshot](./Screenshots/homepage.png)
 
 ### Screenshot 2: Detection Forms
-![Detection Form Screenshot](./Sreenshots/detection-form.png)
+![Detection Form Screenshot](./Sreenshots/detectionform.png)
 
 ### Screenshot 3: Prediction Results
 ![Results Screenshot](./Screenshots/results.png)
