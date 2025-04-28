@@ -101,8 +101,8 @@ Follow these steps to set up and run the project on your local machine:
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/your-username/fraudshield.git
-cd fraudshield
+git clone https://github.com/Mozammilrcdu/Fraud-Detection-System.git
+cd Fraud-Detection-System
 ```
 
 ### Step 2: Install Dependencies
