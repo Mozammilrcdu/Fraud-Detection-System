@@ -139,13 +139,14 @@ http://localhost:5000
 ## Screenshots
 
 ### Screenshot 1: Home Page
-![Home Screenshot](./images/homepage.png)
+![Home Screenshot](./Screenshots/homepage.png)
 
 ### Screenshot 2: Detection Forms
-![Detection Form Screenshot](./images/detection-form.png)
+![Detection Form Screenshot](./Sreenshots/detection-form.png)
 
 ### Screenshot 3: Prediction Results
-![Results Screenshot](./images/results.png)
+![Results Screenshot](./Screenshots/results.png)
+
 ---
 
 ## Future Improvements
