@@ -25,10 +25,11 @@ This repository contains the **FraudShield** project. It is a web application th
 ## Datasets
 
 The models were trained on publicly available fraud detection datasets:  
-- Credit Card Fraud Detection Dataset  
-- Online Payment Fraud Detection Dataset  
-
-*Datasets are available in separate folder*
+- Credit Card Fraud Detection Dataset
+  (https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+  
+- Online Payment Fraud Detection Dataset
+  (https://www.kaggle.com/datasets/rupakroy/online-payments-fraud-detection-dataset)
 
 ---
 
